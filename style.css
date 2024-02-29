@@ -1,0 +1,142 @@
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  padding: 0 2vw;
+  margin: 0;
+  font-size: 5rem;
+  font-family: Geneva, Verdana, sans-serif;
+  background-color: #222;
+  color: #eee;
+}
+
+header {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  h1 {
+    font-size: 5rem;
+  }
+  
+  h2 {
+    font-size: 3rem;
+    padding: 0 10vw;
+  }
+
+  .info {
+    margin-top: 50px;
+    display: flex;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #555;
+    cursor: default;
+
+    &:hover {
+      outline: 3px solid red;
+      animation: blink infinite ease-in-out 1.5s; 
+
+      .info__icon {
+        rotate: 90deg;
+      }
+    }
+
+    .info__text {
+      font-size: 2rem;
+      color: #eee;
+      margin-right: 10px;
+    }
+
+    .info__icon {
+      font-size: 2rem;
+      transition: rotate .3s;
+    }
+
+  }
+
+}
+
+@keyframes blink {
+  100% {outline: 6px solid red}
+}
+
+/* landing three boxes */
+.axis {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.boxz {
+  /* display: inline-block; */
+  width: 196px;
+  height: 196px;
+  background: indigo;
+  
+  &:nth-child(2) {
+    background: deepskyblue;
+  }
+
+  &:nth-child(3) {
+    transition: rotate 0.5s, outline 0.2s, border-radius 0.5s;
+    background: tan;
+    
+    &:hover {
+      rotate: 45deg;
+      outline: 5px solid #222;
+      border-radius: 10px;
+      
+      /* .boxz {
+        background: tan;
+      } */
+    }
+  }
+}
+
+/* status bar */
+.container {
+  background: #9994;
+  width: 100%;
+  height: 6px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.bar {
+  width: 0;
+  height: 100%;
+  box-shadow: 0 0 5px darkred;
+  background: red;
+
+  animation: resize auto linear forwards;
+  animation-timeline: scroll(root block);
+}
+
+@keyframes resize {
+  from { width: 0% } /* Se puede omitir */
+  to { width: 100% }
+}
+
+/* view scroll animation */
+.box {
+  width: 196px;
+  height: 196px;
+  background: indigo;
+  animation: change auto linear forwards;
+  animation-timeline: view(-400px);
+}
+
+@keyframes change {
+  0% { background: indigo; opacity: 0; rotate: 0deg; translate: 0px 0; }
+  50% { background: gold; }
+  100% { background: deeppink; opacity: 1; rotate: 360deg;translate: 400px 0; }
+}
