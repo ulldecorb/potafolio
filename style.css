@@ -47,14 +47,14 @@ header {
       outline: 3px solid #aaa;
       animation: blink infinite ease-in-out 1.5s; 
 
-      .info__icon {
-        rotate: 90deg;
+      .info__svg-container {
+        /* rotate: 90deg; */
+        animation: bounce infinite ease-in .5s;
       }
       
       .info__svg-icon {
         rotate: 90deg;
-        animation: bounce infinite ease-in-out .5s;
-
+        
         polygon {
           fill: #bbb;
         }
@@ -64,26 +64,20 @@ header {
     .info__text {
       font-size: 2rem;
       color: #eee;
-      margin-right: 10px;
+      margin-right: 20px;
     }
 
-    .info__icon {
+    .info__svg-container {
       font-size: 2rem;
       transition: rotate .3s;
     }
 
     .info__svg-icon {
-      /* position: absolute; */
       right: 0;
       margin: auto;
       height: 2rem;
       width: auto;
       transition: rotate .3s;
-
-
-      /* &:nth-of-type(2) {
-        margin-left: 400px;
-      } */
     }
   }
 }
@@ -93,7 +87,7 @@ header {
 }
 
 @keyframes bounce {
-  100% {transform: translate(20px 0)}
+  100% {transform: translate(0, .5rem)}
 }
 
 /* traslation 3D */
