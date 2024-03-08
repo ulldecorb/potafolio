@@ -336,6 +336,51 @@
   }
 }
 
+.projects{
+  width: 100vw;
+  height: 100vh;
+  padding: 5vmin;
+  background-color: #000;
+  gap: 5vh;
+
+  .project{
+    display: grid;
+    place-items: center;
+    position: relative;
+    height: 500px;
+    width: 350px;
+    background-color: #222;
+    border-radius: 10px;
+    cursor: pointer;
+    // z-index: 1;
+
+    &__title{
+      font-size: 3vmin;
+    }
+
+    &::before{
+      position: absolute;
+      content: '';
+      height: 500px;
+      width: 350px;
+      background-color: tomato;
+      border-radius: 15px;
+      z-index: -1;
+      // transition: 0.3s;
+      // animation: cardBorder 2s linear infinite;
+
+    }
+    
+    &:hover::before{
+      height: 512px;
+      width: 362px;
+    }
+  }
+}
+
+@keyframes cardBorder {
+  50% {filter: hue-rotate(350deg);}
+}
 // @keyframes backgroundColor {  
 //   0% { 
 //     background: linear-gradient(transparent);

@@ -284,4 +284,44 @@ header .info .info__svg-icon {
 .fake-text p {
   text-align: left;
   margin-bottom: 3vh;
+}
+
+.projects {
+  width: 100vw;
+  height: 100vh;
+  padding: 5vmin;
+  background-color: #000;
+  gap: 5vh;
+}
+.projects .project {
+  display: grid;
+  place-items: center;
+  position: relative;
+  height: 500px;
+  width: 350px;
+  background-color: #222;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.projects .project__title {
+  font-size: 3vmin;
+}
+.projects .project::before {
+  position: absolute;
+  content: "";
+  height: 500px;
+  width: 350px;
+  background-color: tomato;
+  border-radius: 15px;
+  z-index: -1;
+}
+.projects .project:hover::before {
+  height: 512px;
+  width: 362px;
+}
+
+@keyframes cardBorder {
+  50% {
+    filter: hue-rotate(350deg);
+  }
 }/*# sourceMappingURL=style.css.map */
