@@ -22,9 +22,9 @@ Personal portafolio build on HTML, CSS i Javascript.
 * Run index.html on your browser.
 
 ## Features
-⬛ Responsive
-⬛ Beauty UI
-⬛ Scroll animations
-⬛ Animated SVG icons
+⬛ Responsive   
+⬛ Beauty UI   
+⬛ Scroll animations   
+⬛ Animated SVG icons   
 
 
