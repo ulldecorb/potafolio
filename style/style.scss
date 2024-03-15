@@ -2,10 +2,10 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
   }
   
   body::-webkit-scrollbar {
+    // scroll-behavior: smooth;
     width: 10px;
   }
    
@@ -32,8 +32,9 @@
   }
   
   body {
-    // text-align: center;
-    // padding: 0 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin: 0;
     overflow-x: hidden;
     font-size: 5rem;
@@ -42,26 +43,44 @@
     color: #eee;
   }
   
-  header {
+  .header {
     height: 100vh;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    
+    &__container{
+      // position: fixed;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      animation: expand auto forwards;
+      animation-timeline: view(-25% 100%);
+    }
   
     h1 {
+      // position: fixed;
+      // top: 30%;
       font-size: 15vmin;
+      // animation: expand auto forwards;
+      // animation-timeline: view(-25% 70%);
     }
     
     h2 {
+      // position: fixed;
+      // top: 47%;
       font-size: 5vmin;
       padding: 0 10vw;
       color: #aaa;
+      // animation: expand auto forwards;
+      // animation-timeline: view(-500px 50%);
     }
   
     .info {
+      // position: fixed;
+      // top: 60%;
       justify-self: end;
       margin-top: 50px;
       display: flex;
@@ -69,6 +88,8 @@
       border-radius: 10px;
       background-color: #555;
       cursor: default;
+      // animation: expand auto forwards;
+      // animation-timeline: view(-500px 40%);
   
       
       #darkGroup {
@@ -141,6 +162,27 @@
         transition: rotate .3s;
       }
     }
+  }
+
+  @keyframes expand {
+    0%{
+      // display: flex;
+      position: fixed;
+      opacity: 1;
+      transform: scale(1);
+    }
+    80%{
+      opacity: 0;
+    }
+    100%{
+      transform: scale(4);
+      // display: none;
+      position: relative;
+    }
+  }
+
+  @keyframes identifier {
+    
   }
   
   @keyframes blink {
@@ -341,7 +383,7 @@
   height: 100vh;
   padding: 5vmin;
   background-color: #000;
-  gap: 5vh;
+  gap: 5vw;
 
   .project{
     display: grid;
@@ -352,7 +394,7 @@
     background-color: #222;
     border-radius: 10px;
     cursor: pointer;
-    // z-index: 1;
+    // z-index: -1;
 
     &__title{
       font-size: 3vmin;
@@ -366,14 +408,18 @@
       background-color: tomato;
       border-radius: 15px;
       z-index: -1;
-      // transition: 0.3s;
+      transition: 0.3s;
       // animation: cardBorder 2s linear infinite;
 
     }
     
-    &:hover::before{
-      height: 512px;
-      width: 362px;
+    &:hover{
+
+      &::before{
+        height: 512px;
+        width: 362px;
+        // z-index: 2;
+      }
     }
   }
 }
