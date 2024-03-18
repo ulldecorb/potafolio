@@ -3,7 +3,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 body::-webkit-scrollbar {
@@ -21,17 +20,14 @@ body::-webkit-scrollbar-thumb {
 }
 
 body::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(255, 162, 0, 0.842);
-  /* background-color: rgba(0, 157, 255, 0.824); */
+  background-color: slategrey;
   cursor: pointer;
 }
 
-:root {
-  --dark-color: #ddd;
-  --light-color: #eee;
-}
-
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: 0;
   overflow-x: hidden;
   font-size: 5rem;
@@ -40,7 +36,11 @@ body {
   color: #eee;
 }
 
-header {
+.header {
+  height: 100vh;
+  width: 100%;
+}
+.header__container {
   height: 100vh;
   width: 100%;
   display: flex;
@@ -48,16 +48,18 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
+  animation: expand auto forwards;
+  animation-timeline: view(-25% 100%);
 }
-header h1 {
+.header h1 {
   font-size: 15vmin;
 }
-header h2 {
+.header h2 {
   font-size: 5vmin;
   padding: 0 10vw;
   color: #aaa;
 }
-header .info {
+.header .info {
   justify-self: end;
   margin-top: 50px;
   display: flex;
@@ -66,55 +68,55 @@ header .info {
   background-color: #555;
   cursor: default;
 }
-header .info #darkGroup {
-  fill: var(--dark-color);
+.header .info #darkGroup {
+  fill: #ddd;
 }
-header .info #lightGroup {
-  fill: var(--light-color);
+.header .info #lightGroup {
+  fill: #eee;
 }
-header .info #light, header .info #dark1, header .info #dark2 {
+.header .info #light, .header .info #dark1, .header .info #dark2 {
   transition: all 1s ease;
 }
-header .info #dark2 {
+.header .info #dark2 {
   transform: translateX(-100%);
 }
-header .info:hover {
+.header .info:hover {
   background-color: #333;
   outline: 3px solid #aaa;
   animation: blink infinite ease-in-out 1.5s;
 }
-header .info:hover .info__svg-container {
+.header .info:hover .info__svg-container {
   rotate: 90deg;
   /* animation: bounce infinite ease-in .5s; */
 }
-header .info:hover .info__svg-container #light1 {
+.header .info:hover .info__svg-container #light1 {
   transform: translateX(20%);
 }
-header .info:hover .info__svg-container #dark1 {
+.header .info:hover .info__svg-container #dark1 {
   transform: translateX(40%);
   opacity: 0;
 }
-header .info:hover .info__svg-container #dark2 {
+.header .info:hover .info__svg-container #dark2 {
   transform: translateX(0%);
 }
-header .info:hover .info__svg-icon {
+.header .info:hover .info__svg-icon {
   rotate: 90deg;
 }
-header .info:hover .info__svg-icon polygon {
+.header .info:hover .info__svg-icon polygon {
   fill: #bbb;
 }
-header .info .info__text {
+.header .info .info__text {
   font-size: 2rem;
   color: #eee;
   margin-right: 20px;
 }
-header .info .info__svg-container {
+.header .info .info__svg-container {
   font-size: 2rem;
   transition: rotate 0.3s;
   height: 2rem;
   width: auto;
 }
-header .info .info__svg-icon {
+.header .info .info__svg-icon {
   right: 0;
   margin: auto;
   height: 2rem;
@@ -122,6 +124,21 @@ header .info .info__svg-icon {
   transition: rotate 0.3s;
 }
 
+@keyframes expand {
+  0% {
+    position: fixed;
+    opacity: 1;
+    transform: scale(1);
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    transform: scale(4);
+    position: relative;
+  }
+}
+@keyframes identifier {}
 @keyframes blink {
   100% {
     outline: 6px solid #aaa;
@@ -288,10 +305,10 @@ header .info .info__svg-icon {
 
 .projects {
   width: 100vw;
-  height: 100vh;
-  padding: 5vmin;
-  background-color: #000;
-  gap: 5vh;
+  min-height: 100vh;
+  display: flex;
+  background: #000;
+  gap: 5vw;
 }
 .projects .project {
   display: grid;
@@ -305,6 +322,7 @@ header .info .info__svg-icon {
 }
 .projects .project__title {
   font-size: 3vmin;
+  z-index: 2;
 }
 .projects .project::before {
   position: absolute;
@@ -314,8 +332,10 @@ header .info .info__svg-icon {
   background-color: tomato;
   border-radius: 15px;
   z-index: -1;
+  transition: 0.3s;
 }
 .projects .project:hover::before {
+  color: pink;
   height: 512px;
   width: 362px;
 }
