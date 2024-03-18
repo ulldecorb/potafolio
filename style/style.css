@@ -20,14 +20,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 body::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(255, 162, 0, 0.842);
-  /* background-color: rgba(0, 157, 255, 0.824); */
+  background-color: slategrey;
   cursor: pointer;
-}
-
-:root {
-  --dark-color: #ddd;
-  --light-color: #eee;
 }
 
 body {
@@ -75,10 +69,10 @@ body {
   cursor: default;
 }
 .header .info #darkGroup {
-  fill: var(--dark-color);
+  fill: #ddd;
 }
 .header .info #lightGroup {
-  fill: var(--light-color);
+  fill: #eee;
 }
 .header .info #light, .header .info #dark1, .header .info #dark2 {
   transition: all 1s ease;
@@ -311,9 +305,9 @@ body {
 
 .projects {
   width: 100vw;
-  height: 100vh;
-  padding: 5vmin;
-  background-color: #000;
+  min-height: 100vh;
+  display: flex;
+  background: #000;
   gap: 5vw;
 }
 .projects .project {
@@ -328,6 +322,7 @@ body {
 }
 .projects .project__title {
   font-size: 3vmin;
+  z-index: 2;
 }
 .projects .project::before {
   position: absolute;
@@ -340,6 +335,7 @@ body {
   transition: 0.3s;
 }
 .projects .project:hover::before {
+  color: pink;
   height: 512px;
   width: 362px;
 }
