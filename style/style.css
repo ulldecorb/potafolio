@@ -306,9 +306,13 @@ body {
 .projects {
   width: 100vw;
   min-height: 100vh;
-  display: flex;
   background: #000;
-  gap: 5vw;
+}
+.projects__container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2vw;
 }
 .projects .project {
   display: grid;
@@ -321,6 +325,7 @@ body {
   cursor: pointer;
 }
 .projects .project__title {
+  margin: 2vw;
   font-size: 3vmin;
   z-index: 2;
 }

@@ -357,10 +357,15 @@
 .projects{
   width: 100vw;
   min-height: 100vh;
-  display: flex;
   // padding: 5vmin;
   background: #000;
-  gap: 5vw;
+
+  &__container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2vw;
+  }
 
   .project{
     display: grid;
@@ -372,8 +377,9 @@
     border-radius: 10px;
     cursor: pointer;
     // z-index: 1;
-
+    
     &__title{
+      margin: 2vw;
       font-size: 3vmin;
       z-index: 2;
     }
